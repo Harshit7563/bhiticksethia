@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #0a1628;
+  --ink-soft: #12233d;
+  --paper: #f5f3ef;
+  --paper-deep: #ebe7e0;
+  --surface: #ffffff;
+  --muted: #5c6570;
+  --muted-soft: #8a929c;
+  --line: #ddd7cc;
+  --line-soft: #ebe6dd;
+  --accent: #1f8a52;
+  --accent-deep: #156b3e;
+  --accent-soft: #e6f4ec;
+  --accent-glow: rgba(31, 138, 82, 0.2);
+  --saffron: #f07a1a;
+  --saffron-soft: #fff1e6;
+  --navy: #0c2340;
+  --warning: #b45309;
+  --warning-soft: #fef3c7;
+  --danger: #b42318;
+  --danger-soft: #fee4e2;
+  --success: #067647;
+  --success-soft: #dcfae6;
+  --shadow: 0 24px 60px rgba(14, 18, 24, 0.08);
+  --shadow-lg: 0 40px 80px rgba(14, 18, 24, 0.12);
+  --radius: 1rem;
+  --radius-lg: 1.5rem;
+  --header-h: 6.5rem;
+  --background: var(--paper);
+  --foreground: var(--ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --color-muted-soft: var(--muted-soft);
+  --color-line: var(--line);
+  --color-line-soft: var(--line-soft);
+  --color-accent: var(--accent);
+  --color-accent-deep: var(--accent-deep);
+  --color-accent-soft: var(--accent-soft);
+  --color-saffron: var(--saffron);
+  --color-saffron-soft: var(--saffron-soft);
+  --color-navy: var(--navy);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body), system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--accent-deep);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.font-display {
+  font-family: var(--font-display), var(--font-body), system-ui, sans-serif;
+  letter-spacing: -0.03em;
+}
+
+.container-page {
+  width: min(100% - 2rem, 72rem);
+  margin-inline: auto;
+}
+
+.container-wide {
+  width: min(100% - 2rem, 80rem);
+  margin-inline: auto;
+}
+
+.section-pad {
+  padding-block: clamp(4rem, 8vw, 7rem);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.grid-atmosphere {
+  background-image:
+    linear-gradient(rgba(14, 18, 24, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 18, 24, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
+}
+
+.noise-overlay {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.prose-simple p {
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@supports (backdrop-filter: blur(12px)) {
+  .nav-blur {
+    backdrop-filter: blur(16px) saturate(1.2);
+    background: rgba(245, 243, 239, 0.78);
+  }
+}
+
+.field {
+  width: 100%;
+  height: 2.75rem;
+  border-radius: 0.9rem;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  padding: 0 0.9rem;
+  color: var(--ink);
+}
+
+textarea.field {
+  height: auto;
+  min-height: 7rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  resize: vertical;
+}
