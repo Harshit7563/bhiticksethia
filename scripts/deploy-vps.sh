@@ -5,7 +5,7 @@ set -euo pipefail
 
 VPS_HOST="${VPS_HOST:-root@187.127.164.150}"
 REMOTE_DIR="/var/www/bhiticksethia"
-APP_PORT="3010"
+APP_PORT="3020"
 DOMAIN="bhiticksethia.com"
 REPO_URL="https://github.com/Harshit7563/bhiticksethia.git"
 
